@@ -34,28 +34,6 @@ __PACKAGE__->config(
 __PACKAGE__->setup;
     
 
-sub end : Private {
-    my ( $self, $c ) = @_;
-    
-    my $kw = $c->model( 'Kwalitee' );
-    my $rs = $c->model( 'DBIC::Run' )->search(
-        {},
-        {
-            order_by => 'id desc',
-            rows     => 1,
-        }
-    );
-    
-    $c->stash->{ VERSION } = $VERSION;
-    $c->stash->{ run     } = $rs->first;
-    $c->stash->{ mck     } = $kw;
-    $c->stash->{ perlversion } = $];
-
-    $c->stash->{cpants_is_analysing}=1 if (-e catfile($home,'cpants_is_analysing'));
-
-    $c->forward( $c->view('TT') ) unless $c->stash->{'is_redirect'} || $c->response->body;
-}
-
 sub max_kwalitee {
     my ( $c ) = @_;
     

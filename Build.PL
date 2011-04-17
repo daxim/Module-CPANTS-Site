@@ -12,7 +12,7 @@ my $build = Module::CPANTS::MyBuild->new(
         'File::HomeDir'                    => '0.66', 
     },
     requires    => {
-        'Catalyst'                         => '5.7000',
+        'Catalyst'                         => '5.8900',
         'DBIx::Class'                      => '0.07000',
         'DBD::SQLite'                      => '1.14', 
         'Module::CPANTS::Analyse'          => '0.75',

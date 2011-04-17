@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 use base qw( Catalyst::Controller );
+use File::Spec::Functions qw(catfile);
 
 __PACKAGE__->config->{ namespace } = '';
 
@@ -55,6 +56,28 @@ sub toggle_experimental : Local {
 sub show_experimental : Local {
     my ($self, $c) = @_;
     $c->response->headers->header('Cache-Control'=>'no-cache');
+}
+
+sub end : Private {
+    my ( $self, $c ) = @_;
+    
+    my $kw = $c->model( 'Kwalitee' );
+    my $rs = $c->model( 'DBIC::Run' )->search(
+        {},
+        {
+            order_by => 'id desc',
+            rows     => 1,
+        }
+    );
+    
+    $c->stash->{ VERSION } = Module::CPANTS::Site->VERSION;
+    $c->stash->{ run     } = $rs->first;
+    $c->stash->{ mck     } = $kw;
+    $c->stash->{ perlversion } = $];
+
+    $c->stash->{cpants_is_analysing}=1 if (-e catfile($c->config->{home},'cpants_is_analysing'));
+
+    $c->forward( $c->view('TT') ) unless $c->stash->{'is_redirect'} || $c->response->body;
 }
 
 1;
