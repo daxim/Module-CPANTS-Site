@@ -20,11 +20,11 @@ my $build = Module::CPANTS::MyBuild->new(
         'Catalyst::Model::DBIC::Schema'    => '0.16',
         'Catalyst::View::TT'               => '0.23',
         'Catalyst::View::JSON'             => '0.23',
-        'Catalyst::Plugin::ConfigLoader'   => '0.11', 
         'Catalyst::Plugin::Static::Simple' => '0.14',
-        'Catalyst::Controller::BindLex'    => '0.03',
         'version'                          => '0.73', 
         'Template::Plugin::Number::Format' => '1.02',
+        'Catalyst::Plugin::Session::State::Cookie' => '0',
+        'Catalyst::Plugin::Session::Store::Memcached' => '0',
     },
     meta_merge => {
         resources => {
