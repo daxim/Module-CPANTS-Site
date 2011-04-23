@@ -1,6 +1,17 @@
 <h2>News</h2>
 
 <dl>
+<dt>2011-04: picked up maintenance</dt>
+<dd>
+<p>At the <a href="http://2011.qa-hackathon.org/qa2011/wiki?node=Results">QA Hackathon</a>
+I made the code work with an up-to-date software stack.
+The <a href="https://github.com/daxim">code repositories</a> moved to GitHub.</p>
+<p>The site is live again, some things are still broken, though.
+This takes some more time to fix.</p>
+</dd>
+
+
+
 <dt>2008-06-03: Gabor added more metrics</dt>
 <dd>
 Gabor added yet more metrics:
