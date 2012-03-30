@@ -1,6 +1,8 @@
-use Plack::Builder;
+use strict;
+use warnings;
+
 use Module::CPANTS::Site;
 
-builder {
-    Module::CPANTS::Site->psgi_app;
-};
+my $app = Module::CPANTS::Site->apply_default_middlewares(Module::CPANTS::Site->psgi_app);
+$app;
+
