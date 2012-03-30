@@ -14,9 +14,9 @@ sub search : Local {
 
     $c->log->debug( "search author for $term" ) if $c->debug;
     
-    my $list = $c->stash->{list} = $c->model( 'DBIC::Author' )->search_like(
+    my $list = $c->stash->{list} = $c->model( 'DBIC::Author' )->search(
         {
-            pauseid => uc( $term ) . '%',
+            pauseid => { -like => uc( $term ) . '%' },
         },
         {
             order_by => 'pauseid ASC',
