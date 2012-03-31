@@ -31,6 +31,7 @@ __PACKAGE__->config(
         schema_class=>'Module::CPANTS::Schema',
         connect_info=>['dbi:Pg:dbname=cpants',$db_user,$db_pwd],
     },
+    default_view => 'TT',
 );
 
 __PACKAGE__->setup;

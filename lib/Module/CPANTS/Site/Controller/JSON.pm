@@ -4,7 +4,7 @@ use base qw/Catalyst::Controller/;
 
 sub end : Private {
     my ($self,$c) = @_;
-    $c->forward('VIEW::JSON');
+    $c->detach($c->view('JSON'));
 }
 
 1;

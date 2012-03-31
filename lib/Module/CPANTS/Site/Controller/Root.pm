@@ -48,7 +48,6 @@ sub toggle_experimental : Local {
         $c->session->{show_experimental}=1;
     }
     
-    $c->stash->{is_redirect}=1;
     $c->res->redirect('/show_experimental');
     $c->detach;
     
@@ -58,7 +57,7 @@ sub show_experimental : Local {
     $c->response->headers->header('Cache-Control'=>'no-cache');
 }
 
-sub end : Private {
+sub end : ActionClass('RenderView') {
     my ( $self, $c ) = @_;
     
     my $kw = $c->model( 'Kwalitee' );
@@ -76,8 +75,6 @@ sub end : Private {
     $c->stash->{ perlversion } = $];
 
     $c->stash->{cpants_is_analysing}=1 if (-e catfile($c->config->{home},'cpants_is_analysing'));
-
-    $c->forward( $c->view('TT') ) unless $c->stash->{'is_redirect'} || $c->response->body;
 }
 
 1;
