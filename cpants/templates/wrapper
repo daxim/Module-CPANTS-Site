@@ -32,7 +32,7 @@ CPANTS is currently analysing dists. Results might be inconsistent!
 
 <div class="content">
 
-[% content %]
+[% content.raw %]
 </div>
 
 <div class="footer">

@@ -9,6 +9,7 @@ use Catalyst qw(Static::Simple
     Session::Store::Memcached
     Session::State::Cookie
 );
+use Template::Stash::AutoEscape;
 
 my $home=Module::CPANTS::ProcessCPAN::ConfigData->config('home');
 my $db_user=Module::CPANTS::ProcessCPAN::ConfigData->config('db_user');
@@ -24,6 +25,7 @@ __PACKAGE__->config(
     'View::TT' => {
         WRAPPER=>'wrapper',
         INCLUDE_PATH=>catdir($home,'templates'),
+        STASH => Template::Stash::AutoEscape->new,
     },
     'Model::DBIC'=>{
         schema_class=>'Module::CPANTS::Schema',

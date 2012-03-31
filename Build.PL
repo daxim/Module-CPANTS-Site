@@ -25,6 +25,7 @@ my $build = Module::CPANTS::MyBuild->new(
         'Template::Plugin::Number::Format' => '1.02',
         'Catalyst::Plugin::Session::State::Cookie' => '0',
         'Catalyst::Plugin::Session::Store::Memcached' => '0',
+        'Template::Stash::AutoEscape'      => '0',
     },
     meta_merge => {
         resources => {
