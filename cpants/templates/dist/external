@@ -4,6 +4,7 @@
 
 [% distname = dist.dist %]
 <ul>
+<li><a href="https://metacpan.org/release/[% distname %]>MetaCPAN</a>
 <li><a href="http://search.cpan.org/dist/[% distname %]">search.cpan.org</a>
 <li><a href="http://cpan.uwinnipeg.ca/dist/[% distname %]">Kobes search</a>
 <li><a href="http://rt.cpan.org/NoAuth/Bugs.html?Dist=[% distname %]">rt.cpan.org</a>
